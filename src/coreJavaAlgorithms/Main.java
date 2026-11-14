@@ -1,7 +1,11 @@
 package coreJavaAlgorithms;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Main entry point for the Core Java Algorithms application.
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -10,8 +14,50 @@ public class Main {
 		
 		System.out.println("=== Core Java Algorithms ===");
 		
+		int[] arr = readArrayFromConsole(scanner);
+		System.out.println("Entered Array: " + Arrays.toString(arr));
+		
 		scanner.close();
-
+	}
+	
+	/**
+     * Reads an array of integers from the console with input validation.
+     *
+     * @param scanner the Scanner object for reading input
+     * @return the populated array of integers
+     */
+	private static int[] readArrayFromConsole(Scanner scanner) {
+		
+		System.out.print("Array Size = ");
+		
+		while (! scanner.hasNextInt()) {
+			System.out.print("Invalid input. Please enter an integer.");
+			scanner.next();
+			System.out.print("Array Size = ");
+		}
+		
+		int size = scanner.nextInt();
+		
+		while (size <= 0) {
+			System.out.print("Size must be greater than zero. Array Size = ");
+			scanner.nextInt();
+		}
+		
+		int[] array = new int[size];
+		
+		for (int i = 0; i < size; i++) {
+			System.out.print("Element " + i + " = ");
+			
+			while (! scanner.hasNextInt()) {
+				System.out.println("Invalid input. Please enter an integer.");
+				scanner.next();
+				System.out.print("Element " + i + " = ");
+			}
+			
+			array[i] = scanner.nextInt();
+		}
+		
+		return array;
 	}
 
 }
