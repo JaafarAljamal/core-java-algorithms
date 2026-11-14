@@ -16,8 +16,11 @@ public class Main {
 		
 		int[] arr = readArrayFromConsole(scanner);
 		System.out.println("Entered Array: " + Arrays.toString(arr));
-		
+				
 		scanner.close();
+		
+		int max = FindMaximum.findMax(arr);
+		System.out.println("The Maximum Value in the Array: " + max);		
 	}
 	
 	/**
