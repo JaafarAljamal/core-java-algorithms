@@ -23,6 +23,10 @@ public class Main {
 		int max = FindMaximum.findMax(arr);
 		System.out.println("The Maximum Value in the Array: " + max);
 		
+		// Integrate BinarySearch.binarySearch(arr, target) method
+		int target = BinarySearch.binarySearch(arr, max);
+		System.out.println("The Index of the Target in the Array: " + target);
+		
 		// Integrate ArrayReversal.arrayReverse(arr) method
 		int[] reversedArray = ArrayReversal.arrayReverse(arr);
 		System.out.println("Reversed Array: " + Arrays.toString(reversedArray));
