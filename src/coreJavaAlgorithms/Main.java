@@ -19,8 +19,13 @@ public class Main {
 				
 		scanner.close();
 		
+		// Integrate FindMaximum.findMax(arr) method
 		int max = FindMaximum.findMax(arr);
-		System.out.println("The Maximum Value in the Array: " + max);		
+		System.out.println("The Maximum Value in the Array: " + max);
+		
+		// Integrate ArrayReversal.arrayReverse(arr) method
+		int[] reversedArray = ArrayReversal.arrayReverse(arr);
+		System.out.println("Reversed Array: " + Arrays.toString(reversedArray));
 	}
 	
 	/**
