@@ -16,20 +16,24 @@ public class Main {
 		
 		int[] arr = readArrayFromConsole(scanner);
 		System.out.println("Entered Array: " + Arrays.toString(arr));
-				
-		scanner.close();
-		
+						
 		// Integrate FindMaximum.findMax(arr) method
 		int max = FindMaximum.findMax(arr);
 		System.out.println("The Maximum Value in the Array: " + max);
 		
+		// Integrate BubbleSort.bubbleSort(arr) method to a copy of arr
+		int[] sortedArr = BubbleSort.bubbleSort(Arrays.copyOf(arr, arr.length));
+		System.out.println("Sorted Array: " + Arrays.toString(sortedArr));
+		
 		// Integrate BinarySearch.binarySearch(arr, target) method
-		int target = BinarySearch.binarySearch(arr, max);
-		System.out.println("The Index of the Target in the Array: " + target);
+		int maxIndex = BinarySearch.binarySearch(sortedArr, max);
+		System.out.println("The Index of the Target in the Array: " + maxIndex);
 		
 		// Integrate ArrayReversal.arrayReverse(arr) method
-		int[] reversedArray = ArrayReversal.arrayReverse(arr);
+		int[] reversedArray = ArrayReversal.arrayReverse(Arrays.copyOf(arr, arr.length));
 		System.out.println("Reversed Array: " + Arrays.toString(reversedArray));
+		
+		scanner.close();
 	}
 	
 	/**
