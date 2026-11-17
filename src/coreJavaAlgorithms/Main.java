@@ -16,22 +16,15 @@ public class Main {
 		
 		int[] arr = readArrayFromConsole(scanner);
 		System.out.println("Entered Array: " + Arrays.toString(arr));
-						
-		// Integrate FindMaximum.findMax(arr) method
-		int max = FindMaximum.findMax(arr);
-		System.out.println("The Maximum Value in the Array: " + max);
 		
-		// Integrate BubbleSort.bubbleSort(arr) method to a copy of arr
-		int[] sortedArr = BubbleSort.bubbleSort(Arrays.copyOf(arr, arr.length));
-		System.out.println("Sorted Array: " + Arrays.toString(sortedArr));
+		// Declare a variable to hold the max value
+		int max = runBasicOperations(arr);
 		
-		// Integrate BinarySearch.binarySearch(arr, target) method
-		int maxIndex = BinarySearch.binarySearch(sortedArr, max);
-		System.out.println("The Index of the Target in the Array: " + maxIndex);
+		// Declare a variable to hold the sorted array
+		int[] sortedArray = runSortingAlgorithms(arr);
 		
-		// Integrate ArrayReversal.arrayReverse(arr) method
-		int[] reversedArray = ArrayReversal.arrayReverse(Arrays.copyOf(arr, arr.length));
-		System.out.println("Reversed Array: " + Arrays.toString(reversedArray));
+		// Call runSearchingAlgorithms() method
+		runSearchingAlgorithms(sortedArray, max);
 		
 		scanner.close();
 	}
@@ -56,7 +49,7 @@ public class Main {
 		
 		while (size <= 0) {
 			System.out.print("Size must be greater than zero. Array Size = ");
-			scanner.nextInt();
+			size = scanner.nextInt();
 		}
 		
 		int[] array = new int[size];
@@ -74,6 +67,49 @@ public class Main {
 		}
 		
 		return array;
+	}
+	
+	/**
+	 * Executes and prints basic array operations (finding maximum and reversal).
+	 *
+	 * @param originalArray the input array to operate on
+	 * @return the maximum value found in the array
+	 */
+	private static int runBasicOperations(int[] originalArray) {
+		int max = FindMaximum.findMax(originalArray);
+		System.out.println("The Maximum Value in the Array: " + max);
+		
+		int[] reversedArray = ArrayReversal.arrayReverse(Arrays.copyOf(originalArray, originalArray.length));
+		System.out.println("Reversed Array: " + Arrays.toString(reversedArray));
+		
+		return max;
+	}
+	
+	/**
+	 * Executes sorting algorithms on defensive copies of the input array and prints the results.
+	 *
+	 * @param originalArray the input array to be sorted
+	 * @return a sorted copy of the array
+	 */
+	private static int[] runSortingAlgorithms(int[] originalArray) {
+		int[] bubbleSort = BubbleSort.bubbleSort(Arrays.copyOf(originalArray, originalArray.length));
+		System.out.println("Sorted Array using Bubble Sort: " + Arrays.toString(bubbleSort));
+		
+		int[] selectionSort = SelectionSort.selectionSort(Arrays.copyOf(originalArray, originalArray.length));
+		System.out.println("Sorted Array using Selection Sort: " + Arrays.toString(selectionSort));
+
+		return selectionSort;
+	}
+	
+	/**
+	 * Searches for a target value in a sorted array using binary search and prints its index.
+	 *
+	 * @param sortedArray the sorted array to search within
+	 * @param target      the value to search for
+	 */
+	private static void runSearchingAlgorithms(int[] sortedArray, int target) {
+		int maxIndex = BinarySearch.binarySearch(sortedArray, target);
+		System.out.println("The Index of the Target in the Array: " + maxIndex);		
 	}
 
 }
