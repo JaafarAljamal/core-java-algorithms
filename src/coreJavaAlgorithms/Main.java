@@ -97,8 +97,11 @@ public class Main {
 		
 		int[] selectionSort = SelectionSort.selectionSort(Arrays.copyOf(originalArray, originalArray.length));
 		System.out.println("Sorted Array using Selection Sort: " + Arrays.toString(selectionSort));
+		
+		int[] insertionSort = InsertionSort.insertionSort(Arrays.copyOf(originalArray, originalArray.length));
+		System.out.println("Sorted Array using Insertion Sort: " + Arrays.toString(insertionSort));
 
-		return selectionSort;
+		return insertionSort;
 	}
 	
 	/**
