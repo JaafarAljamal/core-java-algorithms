@@ -100,6 +100,9 @@ public class Main {
 		
 		int[] insertionSort = InsertionSort.insertionSort(Arrays.copyOf(originalArray, originalArray.length));
 		System.out.println("Sorted Array using Insertion Sort: " + Arrays.toString(insertionSort));
+		
+		int[] mergeSort = MergeSort.mergeSort(Arrays.copyOf(originalArray, originalArray.length));
+		System.out.println("Sorted Array using Merge Sort: " + Arrays.toString(mergeSort));
 
 		return insertionSort;
 	}
